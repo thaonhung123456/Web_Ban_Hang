@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Web_Ban_Hang.Models.ViewModel>
+
+@{
+    ViewBag.Title = "GroupByTop5";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    #div-ds {
+        text-align: center;
+        background-color: lightcoral;
+        height: 50px;
+        /*padding-top:5px;*/
+    }
+    .card-pro {
+        border: 1px solid black;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        background-color: white;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
+</style>
+<div style="border-radius:10px; border:1px solid black; background-color:lightcoral; margin-top: 100px ">
+    <div id="div-ds"><h2>Top sản phẩm bán chạy</h2></div>
+    <div class="container">
+        <div class="row">
+            @foreach (var i in Model)
+            {
+                <div class="col-sm-12 col-sm-6 col-sm-4 col-lg-3">
+                    <div class="card-pro">
+                        @*<p>@Html.DisplayFor(modelItem => i.IDPro)</p>*@
+                        <a href="/Product/DetailCus/@i.IDPro">
+                            <img src="@Url.Content(i.ImgPro)" height="150" width="150" />
+                        </a>
+                        <a href="~/Views/OrderDetail/GroupByTop5.cshtml"></a>
+                        <a href="/Product/DetailCus/@i.NamePro"> <br />@Html.DisplayFor(model => i.NamePro)</a>
+                        @*<p>@Html.DisplayFor(modelItem => i.NamePro)</p>*@
+                        <p>@Html.DisplayFor(modelItem => i.pricePro)</p>
+                        @*<p>@Html.DisplayFor(modelItem => i.DesPro)</p>*@
+                        @*<p>@Html.DisplayFor(model => i.Sum_Quantity)</p>*@
+                        <a href="/ShoppingCart/AddToCart/@i.IDPro" class="btn btn-default">Mua hàng</a>
+                    </div>
+                </div>
+            }
+        </div>
+        
+    </div>
+</div>
+    @*<table class="table-bordered" style="margin-left: 500px">
+            <tr style="text-align: center">
+                <th> Mã sản phẩm </th>
+                <th> Tên sản phẩm </th>
+                <th> Hình ảnh </th>
+                <th> Giá </th>
+                <th> Tổng số lượng sản phẩm </th>
+            </tr>
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => i.IDPro)</td>
+                    <td>@Html.DisplayFor(model => i.NamePro)</td>
+                    <td><img src="@Url.Content(i.ImgPro)" height="150" width="150" /></td>
+                    <td>@Html.DisplayFor(model => i.pricePro)</td>
+                    <td>@Html.DisplayFor(model => i.Sum_Quantity)</td>
+                    <td><a href="/ShoppingCart/AddToCart/@i.IDPro" class="btn btn-default">Buy</a></td>
+                </tr>
+            }
+
+        </table>*@
+

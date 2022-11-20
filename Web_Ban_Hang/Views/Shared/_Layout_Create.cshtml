@@ -1,0 +1,107 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Scripts/script.js"></script>
+    <style>
+        .div-footer {
+            text-align: center;
+            bottom: 0;
+            left: 0;
+            text-align: center;
+            padding-top: 50px;
+        }
+        li.format-hello {
+            padding-top: 15px;
+            color: #000000;
+        }
+        .navbar-inverse .navbar-brand {
+            color: crimson;
+            font-size: 15px;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: crimson;
+        }
+        span.field-validation-error {
+            color: red;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: antiquewhite">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("NullStore", "Home", "Product", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Home", "Product")</li>
+                    <li>@Html.ActionLink("Sản phẩm", "Index_Admin", "Product")</li>
+                    <li>@Html.ActionLink("Loại sản phẩm", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Khách hàng", "Index", "Customer")</li>
+                    <li>@Html.ActionLink("Đơn hàng", "Index", "OrderPro")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @*<li><a href="/AdminUser/RegisterAdmin"><span class="glyphicon glyphicon-user"></span>Đăng ký</a></li>
+        <li><a href="/AdminUser/Index"><span class="glyphicon glyphicon-log-in"></span>Đăng nhập</a></li>
+        <li><a href="@Url.Action("LogOutUser", "AdminUser")"><span class="glyphicon glyphicon-log-out"></span>Đăng xuất</a></li>
+        <li class="format-hello">
+            @if (Session["NameUser"] == null)
+            {
+                <span>Xin chào quý khách !</span>
+            }
+            else
+            {
+                <span><text>Xin chào</text> @Session["NameUser"]</span>
+            }
+        </li>*@
+                    <li class="format-hello">
+                        @if (Session["NameUser"] == null)
+                        {
+
+                        <li> <a href="/LoginUser/RegisterUser"><span class="glyphicon glyphicon-user"></span>Đăng Ký </a></li>
+                        <li> <a href="/LoginUser/FormLogin"><span class="glyphicon glyphicon-log-in"></span>Đăng Nhập</a></li>
+                        <li style="color:crimson">  Xin chào quý khách !</li>
+                    }
+                    else
+                    {
+                        <li> <a href="@Url.Action("LogOutUser", "LoginUser")"><span class="glyphicon glyphicon-log-out"></span>Đăng Xuất</a></li>
+
+                        <li style="color:crimson;margin-top:5%"> Xin Chào @Session["NameUser"] !</li>
+                    }
+                        </li>
+</div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        
+    <footer class="div-footer">
+        <div class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: antiquewhite; text-align: center; font-size: 20px">
+            <p>Địa chỉ: Trường Đại học Ngoại Ngữ Tin Học tp HCM</p>
+            <p>Thông tin liên hệ: 0123456789 </p>
+            <p>Địa chỉ email: Huflit.edu.vn</p>
+        </div>
+    </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+

@@ -1,0 +1,76 @@
+﻿@model Web_Ban_Hang.Models.AdminUser
+
+@{
+    ViewBag.Title = "RegisterUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .field-validation-error {
+        color: red;
+    }
+
+    th, td {
+        padding: 5px;
+    }
+
+    #table {
+        margin-right: auto;
+        margin-left: 35%;
+    }
+
+    h2 {
+        text-align: center;
+    }
+</style>
+<h2>Đăng ký tài khoản</h2>
+<div id="table">
+    @using (Html.BeginForm("RegisterUser", "LoginUser", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div style=" border: 1px solid black; margin: 10px; padding: 10px; border-radius: 10px; background-color: white; padding-bottom: 10px;width:fit-content ">
+            <table>
+                <tr>
+                    <td> Mã ID</td>
+                    <td> @Html.EditorFor(model => model.ID)</td>
+                    <td> @Html.ValidationMessageFor(model => model.ID) </td>
+
+                </tr>
+
+                @if (ViewBag.ErrorRegister != null)
+                {
+                    @ViewBag.ErrorRegister
+                }
+
+                <tr>
+                    <td>Tên đăng nhập</td>
+                    <td>@Html.EditorFor(model => model.NameUser)</td>
+                    <td>@Html.ValidationMessageFor(model => model.NameUser)</td>
+                </tr>
+                <tr>
+                    <td>Vị trí</td>
+                    <td>@Html.EditorFor(model => model.RoleUser)</td>
+                    <td>@Html.ValidationMessageFor(model => model.RoleUser)</td>
+                </tr>
+                <tr>
+                    <td>Mật khẩu</td>
+                    <td>@Html.PasswordFor(model => model.PasswordUser)</td>
+                    <td>@Html.ValidationMessageFor(model => model.PasswordUser)</td>
+                </tr>
+                <tr>
+                    <td>Nhập lại mật khẩu</td>
+                    <td>@Html.PasswordFor(model => model.ConfirmPass)</td>
+                    <td>@Html.ValidationMessageFor(model => model.ConfirmPass)</td>
+                </tr>
+                <tr>
+                    <td> </td>
+                    <td> <input type="submit" value="Đăng ký" /> </td>
+                </tr>
+            </table>
+        </div>
+    }
+</div>
+
+
+
+
