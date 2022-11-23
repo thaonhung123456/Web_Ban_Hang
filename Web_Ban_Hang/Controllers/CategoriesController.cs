@@ -55,7 +55,7 @@ namespace Web_Ban_Hang.Controllers
         public ActionResult Edit(int id, Category cate)
         {
             db.Entry(cate).State = System.Data.Entity.EntityState.Modified;
-            db.SaveChanges();
+            db.SaveChanges(); 
             return RedirectToAction("Index");
         }
 

@@ -14,7 +14,7 @@
         height: 30px;
         margin-top: 10px;
         margin-bottom: 50px;
-       /* padding-top: 30px;*/
+        /* padding-top: 30px;*/
         /*border-radius: 20px 20px 0 0;*/
     }
 
@@ -51,10 +51,11 @@
 
 
 <br />
-
+@{ Html.RenderAction("GroupByTop5", "OrderDetail");}
+@{ Html.RenderAction("TopNew", "Product");}
 @using (Html.BeginForm("SearchOption", "Product"))
 {
-    <div style="border-radius:10px;border:1px solid black;background-color:lightcoral ">
+    <div style="border-radius: 10px; border: 1px solid black; background-color: lightcoral; padding-top: 10px; margin-top: 50px ">
         <div id="div-ds"><h2>Danh sách sản phẩm</h2></div>
         <div style="text-align: center; padding-top: 5px;padding-bottom:20px">
             <text>Từ</text>
@@ -80,7 +81,7 @@
         </div>
         Trang @(Model.PageNumber) / @Model.PageCount
         <div class="MenuPage">
-            @Html.PagedListPager(Model, page => Url.Action("Home", new { page = page }))
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
         </div>
     </div>
 }

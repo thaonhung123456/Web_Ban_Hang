@@ -1,12 +1,12 @@
-﻿@{
+﻿@*@{
     ViewBag.Title = "ShowCart";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
+}*@
 
 <h2>Giỏ hàng</h2>
 <a href="@Url.Action("Index", "Product")">Tiếp tục mua hàng</a>
-@if (Model != null)
-{
+@*@if (Model != null)*@
+
     <table class="table">
         <thead>
             <tr>
@@ -26,6 +26,6 @@
             </tr>
         </tbody>
     </table>
-}
+
 
 

@@ -5,8 +5,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Giỏ hàng</h2>
-<a href="@Url.Action("Index", "Product")">Tiếp tục mua hàng</a>
+<h2 style="padding-top: 50px">Giỏ hàng</h2>
+<a href="@Url.Action("Home", "Product")">Tiếp tục mua hàng</a>
 @if (Model != null)
 {
     <table class="table">

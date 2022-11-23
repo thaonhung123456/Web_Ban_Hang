@@ -326,7 +326,7 @@
     <Content Include="Views\Product\Delete.cshtml" />
     <Content Include="Views\AdminUser\Index.cshtml" />
     <Content Include="Views\AdminUser\RegisterAdmin.cshtml" />
-    <Content Include="Views\Product\Home.cshtml" />
+    <Content Include="Views\Product\TopNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

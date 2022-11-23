@@ -36,7 +36,8 @@ namespace Web_Ban_Hang.Controllers
                             DesPro = gr.Key.desPro,
                             Sum_Quantity = gr.Sum(s => s.Quantity)
                         };
-            return View(query.Take(5).ToList());
+            return PartialView(query.Take(5).ToList());
         }
+        
     }
 }

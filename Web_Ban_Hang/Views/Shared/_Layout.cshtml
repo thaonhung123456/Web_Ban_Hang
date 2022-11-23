@@ -9,9 +9,9 @@
     <style>
         .div-footer {
             text-align: center;
-            bottom: 0;
+            bottom: 0px;
             left: 0;
-            height: 50px;
+            height: 5px;
             width: 100%;
             text-align: center;
         }
@@ -64,7 +64,7 @@
     </style>
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: antiquewhite; border-radius: 10px">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: antiquewhite">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -73,9 +73,9 @@
                     <span class="icon-bar"></span>
                 </button>
                 <span>
-                    <a href="@Url.Action("Home", "Product")">
+                    <a href="@Url.Action("Index", "Product")">
                         <img src="~/Content/images/Logo.png" class="header_logo header-logo" alt="#" height="70" width="90" />
-                        @Html.ActionLink("NullStore", "Home", "Product", new { area = "" }, new { @class = "navbar-brand" })
+                        @Html.ActionLink("NullStore", "Index", "Product", new { area = "" }, new { @class = "navbar-brand" })
                     </a>
                 </span>
             </div>
@@ -125,7 +125,7 @@
     </div>
 
      
-    <div class="container-fluid body-content" style="padding-top: 60px">         
+    <div class="container-fluid body-content" style="padding-top: 50px">         
         <div style="text-align: center">
             @*<ul style="text-decoration: none; background-color: palevioletred; border-radius: 10px; border: 1px solid black; margin-top: 100px; list-style-type: none; padding: 20px;">
             <li><a href="/OrderDetail/GroupByTop5/" style="color:black;" id="animation-top5">Top 5 sản phẩm bán chạy nhất</a></li>
@@ -133,7 +133,8 @@
 
             @*@{Html.ActionLink("Index_Partial", "Product"); }*@
 
-            <div id="div-content" style="border-radius: 10px; padding-bottom: 20px">
+            <div id="div-content" style="border-radius: 10px; padding-bottom: 20px; padding-top: 10px">
+             
             @RenderBody()
             </div>
         </div>
@@ -141,11 +142,11 @@
         <br />
 
         <footer class="div-footer">
-            <div class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: antiquewhite; border-radius: 10px">
-                @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
-                <p>Địa chỉ: Trường Đại học Ngoại Ngữ Tin Học tp HCM</p>
-                <p>Thông tin liên hệ: 0123456789 </p>
-                <p>Địa chỉ email: Huflit.edu.vn</p>
+            <div class="navbar navbar-inverse navbar-fixed-bottom" style="background-color: antiquewhite;">
+                <p>&copy; @DateTime.Now.Year - Thông tin liên hệ: 01654711707</p>
+                @*<p>Địa chỉ: Trường Đại học Ngoại Ngữ Tin Học tp HCM</p>*@
+                @*<p>Thông tin liên hệ: 01654711707 </p>*@
+                @*<p>Địa chỉ email: Huflit.edu.vn</p>*@
             </div>
             @*class="navbar navbar-inverse navbar-fixed-bottom"*@
         </footer>

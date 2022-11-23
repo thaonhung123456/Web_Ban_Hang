@@ -21,13 +21,7 @@ namespace Web_Ban_Hang.Controllers
         {
             var products = db.Products.Include(p => p.Category1);
             return View(products.ToList());
-        }
-        public ActionResult Home(double min = double.MinValue, double max = double.MaxValue)
-        {
-            ViewBag.min = min;
-            ViewBag.max = max;
-            return View();
-        }
+        }      
         public ActionResult Index(string category,int? page, double min = double.MinValue, double max = double.MaxValue)
         {
             int pageSize = 8;
@@ -147,7 +141,31 @@ namespace Web_Ban_Hang.Controllers
             else
                 return View(db.Products.Where(s => s.NamePro.Contains(_name)).ToList());
         }
-       
+        public ActionResult TopNew()
+        {
+            List<OrderDetail> orderD = db.OrderDetails.ToList();
+            List<Product> proList = db.Products.ToList();
+            var query = from od in proList
+                        join p in proList on od.ProductID equals p.ProductID into tbl
+                        group od by new
+                        {
+                            idPro = od.ProductID,
+                            namePro = od.NamePro,
+                            imagePro = od.ImagePro,
+                            price = od.Price
+                        } into gr
+                        orderby gr.Max(s => s.ProductID) descending
+                        select new ViewModel
+                        {
+                            IDPro = gr.Key.idPro,
+                            NamePro = gr.Key.namePro,
+                            ImgPro = gr.Key.imagePro,
+                            pricePro = (decimal)gr.Key.price,
+                            Top_New = gr.Max(s => s.ProductID)
+                        };
+            return PartialView(query.Take(5).ToList());
+        }
+
         //public PartialViewResult PartialProduct(string NameCate, int? page, double min = double.MinValue, double max = double.MaxValue)
         //{
         //    int pageSize = 4;

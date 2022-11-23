@@ -10,15 +10,24 @@
 {
     <table class="table-bordered">
         <tr>
-            <td>@Html.LabelFor(model => model.NamePro)</td>
+            <td>
+                @*@Html.LabelFor(model => model.NamePro)*@
+                Tên sản phẩm
+            </td>
             <td>@Html.EditorFor(model => model.NamePro)</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Price)</td>
+            <td>
+                 @*@Html.LabelFor(model => model.Price)*@
+                Đơn giá
+            </td>
             <td>@Html.EditorFor(model => model.Price)</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.Category)</td>
+            <td>
+                @*@Html.LabelFor(model => model.Category)*@
+                Tên loại
+            </td>
             <td>
                 @Html.DropDownListFor(model => model.Category, (SelectList)ViewBag.listCategory)
 
@@ -28,11 +37,16 @@
             </td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.DecriptionPro)</td>
+            <td> 
+                @*@Html.LabelFor(model => model.DecriptionPro)*@ 
+                Chi tiết
+            </td>
             <td>@Html.EditorFor(model => model.DecriptionPro)</td>
         </tr>
         <tr>
-            <td>@Html.LabelFor(model => model.ImagePro)</td>
+            <td>@*@Html.LabelFor(model => model.ImagePro)*@
+                Hình ảnh
+            </td>
             <td>
                 <img src="@Url.Content(Model.ImagePro)" height="150" width="150" id="previewImg" />
             </td>
@@ -47,5 +61,5 @@
 }
 <p>
     @Html.ActionLink("Sửa", "Edit", new { id = Model.ProductID }) |
-    @Html.ActionLink("Trở về", "Index_Admin")
+    @Html.ActionLink("Quay lại", "Index_Admin")
 </p>
