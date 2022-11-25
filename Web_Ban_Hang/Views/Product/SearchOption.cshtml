@@ -1,4 +1,12 @@
-﻿@model IEnumerable<Web_Ban_Hang.Models.Product>
+﻿@*@model IEnumerable<Web_Ban_Hang.Models.Product>
+
+    @{
+        ViewBag.Title = "SearchOption";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
+@using Web_Ban_Hang.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<Product>
 
 @{
     ViewBag.Title = "SearchOption";
@@ -69,3 +77,7 @@
         </div>
     </div>
 }
+ Trang @(Model.PageNumber) / @Model.PageCount
+<div class="MenuPage">
+    @Html.PagedListPager(Model, page => Url.Action("SearchOption", new { page = page }))
+</div>

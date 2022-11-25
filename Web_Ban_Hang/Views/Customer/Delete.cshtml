@@ -11,7 +11,8 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.IDCus)
+            @*@Html.DisplayNameFor(model => model.IDCus)*@
+            Mã khách hàng
         </dt>
 
         <dd>
@@ -19,7 +20,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NameCus)
+            @*@Html.DisplayNameFor(model => model.NameCus)*@
+            Tên khách hàng
         </dt>
 
         <dd>
@@ -27,7 +29,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PhoneCus)
+            @*@Html.DisplayNameFor(model => model.PhoneCus)*@
+            Số điện thoại
         </dt>
 
         <dd>
@@ -35,7 +38,8 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EmailCus)
+            @*@Html.DisplayNameFor(model => model.EmailCus)*@
+            Email
         </dt>
 
         <dd>
@@ -49,8 +53,7 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Quay lại", "Index")
         </div>
     }
-</div>

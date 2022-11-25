@@ -36,16 +36,7 @@ namespace Web_Ban_Hang.Controllers
                 var productList = db.Products.OrderByDescending(x => x.NamePro).Where(p => p.Category == category);
                 return View(productList.ToPagedList(pageNum,pageSize));
             }
-            //if (category == null)
-            //{
-            //    var productList = db.Products.OrderByDescending(x => x.NamePro);
-            //    return View(productList.ToPagedList(pageNum, pageSize));
-            //}
-            //else
-            //{
-            //    var productList = db.Products.OrderByDescending(x => x.Category).Where(x => x.Category == category);
-            //    return View(productList.ToPagedList(pageNum, pageSize));
-            //}
+           
         }
         public ActionResult Create()
         {
@@ -120,7 +111,7 @@ namespace Web_Ban_Hang.Controllers
             }
             catch
             {
-                return Content("This data is using in other table, Error Delete!");
+                return Content("Xóa không thành công. Dữ liệu dã được sử dụng cho một bảng đã tồn tại");
             }
         }
         public ActionResult SelectCate()
@@ -129,11 +120,29 @@ namespace Web_Ban_Hang.Controllers
             se_cate.ListCate = db.Categories.ToList<Category>();
             return PartialView(se_cate);
         }
-        public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
+        public ActionResult SearchOption(string category, int? page, double min = double.MinValue, double max = double.MaxValue)
         {
-            var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
-            return View(list);
+            int pageSize = 8;
+            int pageNum = (page ?? 1);
+            if (category == null)
+            {
+                var list = db.Products.OrderByDescending(x => x.NamePro);
+                return View(list.ToPagedList(pageNum, pageSize));
+
+            }
+            else
+            {
+                var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
+                return View(list.ToPagedList(pageNum, pageSize));
+            }
+            //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
+            //return View(list);
         }
+        //public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
+        //{
+        //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
+        //    return View(list);
+        //}
         public ActionResult Search(string _name)
         {
             if (_name == null)
@@ -180,6 +189,17 @@ namespace Web_Ban_Hang.Controllers
         //        var productList = db.Products.OrderByDescending(x => x.NamePro).Where(p => p.Category == NameCate);
         //        return PartialView(productList);
         //    }    
+        //}
+
+        //if (category == null)
+        //{
+        //    var productList = db.Products.OrderByDescending(x => x.NamePro);
+        //    return View(productList.ToPagedList(pageNum, pageSize));
+        //}
+        //else
+        //{
+        //    var productList = db.Products.OrderByDescending(x => x.Category).Where(x => x.Category == category);
+        //    return View(productList.ToPagedList(pageNum, pageSize));
         //}
     }
 }

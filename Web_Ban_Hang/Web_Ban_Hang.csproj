@@ -233,6 +233,10 @@
     <Content Include="Content\images\7.jpg" />
     <Content Include="Content\images\8.jpg" />
     <Content Include="Content\images\9.jpg" />
+    <Content Include="Content\images\banner1.jpg" />
+    <Content Include="Content\images\banner2.jpg" />
+    <Content Include="Content\images\banner3.jpg" />
+    <Content Include="Content\images\banner4.jpg" />
     <Content Include="Content\images\gio.jpg" />
     <Content Include="Content\images\giohang.jpg" />
     <Content Include="Content\images\giohang2.png" />
@@ -327,6 +331,7 @@
     <Content Include="Views\AdminUser\Index.cshtml" />
     <Content Include="Views\AdminUser\RegisterAdmin.cshtml" />
     <Content Include="Views\Product\TopNew.cshtml" />
+    <Content Include="Views\OrderDetail\Banner.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

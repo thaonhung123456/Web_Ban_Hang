@@ -18,12 +18,14 @@ namespace Web_Ban_Hang.Models
     public partial class AdminUser
     {
         [Display(Name = "Mã User")]
-        public int ID { get; set; }
+      
         [Required(ErrorMessage = "ID không được trống .....")]
+        public int ID { get; set; }
 
         [Display(Name = "Tên User")]
-        public string NameUser { get; set; }
         [Required(ErrorMessage = "Tên không được trống .....")]
+        public string NameUser { get; set; }
+        
 
         [DisplayName("Vị trí")]
         public string RoleUser { get; set; }

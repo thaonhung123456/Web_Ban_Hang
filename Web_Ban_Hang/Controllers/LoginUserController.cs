@@ -30,7 +30,7 @@ namespace Web_Ban_Hang.Controllers
                 db.Configuration.ValidateOnSaveEnabled = false;
                 //Session["ID"] = _user.ID;
                 Session["NameUser"] = _user.NameUser;
-                return RedirectToAction("Home", "Product");
+                return RedirectToAction("Index", "Product");
             }
         }
         public ActionResult RegisterUser()
@@ -52,7 +52,7 @@ namespace Web_Ban_Hang.Controllers
                 }
                 else
                 {
-                    ViewBag.ErrorRegister = "This ID is exixst";
+                    ViewBag.ErrorRegister = "ID đã tồn tại";
                     return View();
                 }
             }

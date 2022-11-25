@@ -6,7 +6,7 @@
 }
 
 <h2 style="padding-top: 50px">Giỏ hàng</h2>
-<a href="@Url.Action("Home", "Product")">Tiếp tục mua hàng</a>
+<a href="@Url.Action("Index", "Product")">Tiếp tục mua hàng</a>
 @if (Model != null)
 {
     <table class="table">
@@ -64,7 +64,7 @@
                             <tr>
                                 <td></td>
                                 <td>
-                                    <input type="submit" value="Kiểm tra" class="btn btn-success" />
+                                    <input type="submit" value="Đặt hàng" class="btn btn-success" />
                                     <a href="@Url.Action("RegisterUser", "LoginUser")" class="btn btn-success">Đăng Ký</a>
                                 </td>
                             </tr>

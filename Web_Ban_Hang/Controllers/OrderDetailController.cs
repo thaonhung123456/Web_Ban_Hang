@@ -38,6 +38,9 @@ namespace Web_Ban_Hang.Controllers
                         };
             return PartialView(query.Take(5).ToList());
         }
-        
+        public ActionResult Banner()
+        {
+            return PartialView();
+        }
     }
 }

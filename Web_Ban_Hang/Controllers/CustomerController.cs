@@ -67,7 +67,7 @@ namespace Web_Ban_Hang.Controllers
             }
             catch
             {
-                return Content("This data is using in other table, Error Delete!");
+                return Content("Xóa không thành công. Dữ liệu dã được sử dụng cho một bảng đã tồn tại!");
             }
         }
     }
