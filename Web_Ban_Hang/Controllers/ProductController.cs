@@ -24,16 +24,20 @@ namespace Web_Ban_Hang.Controllers
         }      
         public ActionResult Index(string category,int? page, double min = double.MinValue, double max = double.MaxValue)
         {
-            int pageSize = 8;
+            int pageSize = 2;
             int pageNum = (page ?? 1);
             if (category == null)
             {
                 var productList = db.Products.OrderByDescending(x => x.NamePro);
+                ViewBag.Cate = category;
+               
+         
                 return View(productList.ToPagedList(pageNum, pageSize));
             }
             else
             {
                 var productList = db.Products.OrderByDescending(x => x.NamePro).Where(p => p.Category == category);
+          
                 return View(productList.ToPagedList(pageNum,pageSize));
             }
            
@@ -135,14 +139,8 @@ namespace Web_Ban_Hang.Controllers
                 var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
                 return View(list.ToPagedList(pageNum, pageSize));
             }
-            //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
-            //return View(list);
         }
-        //public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
-        //{
-        //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
-        //    return View(list);
-        //}
+        
         public ActionResult Search(string _name)
         {
             if (_name == null)
@@ -201,5 +199,12 @@ namespace Web_Ban_Hang.Controllers
         //    var productList = db.Products.OrderByDescending(x => x.Category).Where(x => x.Category == category);
         //    return View(productList.ToPagedList(pageNum, pageSize));
         //}
+        //public ActionResult SearchOption(double min = double.MinValue, double max = double.MaxValue)
+        //{
+        //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
+        //    return View(list);
+        //}
+        //    var list = db.Products.Where(p => (double)p.Price >= min && (double)p.Price <= max).ToList();
+        //return View(list);
     }
 }

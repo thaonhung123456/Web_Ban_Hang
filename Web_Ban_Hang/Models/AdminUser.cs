@@ -17,21 +17,24 @@ namespace Web_Ban_Hang.Models
 
     public partial class AdminUser
     {
-        [Display(Name = "Mã User")]
-      
-        [Required(ErrorMessage = "ID không được trống .....")]
+        [Display(Name = "Mã User")]      
+        [Required(ErrorMessage = "ID không được trống .....")]        
         public int ID { get; set; }
 
+        //[RegularExpression(@"^[a-zA-Z][0-9]*$", ErrorMessage = "Tên đăng nhập gồm kí tự in hoa, kí tự in thường, chiều dài tên từ 5 - 20 kí tự ")]
         [Display(Name = "Tên User")]
         [Required(ErrorMessage = "Tên không được trống .....")]
+        [StringLength(20, MinimumLength = 5, ErrorMessage = "Chiều dài tên từ 5 - 20 kí tự")]
         public string NameUser { get; set; }
         
 
         [DisplayName("Vị trí")]
         public string RoleUser { get; set; }
 
+        [RegularExpression("^[a-z0-9]*$", ErrorMessage = "Mật khẩu gồm kí tự in hoa, kí tự thường và số, chiều dài tên từ 8 - 16 kí tự")]
         [DisplayName("Nhập mật khẩu")]
         [Required(ErrorMessage = "Mật khẩu không được trống ....")]
+        [StringLength(16, MinimumLength = 8, ErrorMessage = "Chiều dài tên từ 8 - 16 kí tự")]
         [DataType(DataType.Password)]
         public string PasswordUser { get; set; }
 

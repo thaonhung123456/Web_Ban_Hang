@@ -100,7 +100,7 @@ namespace Web_Ban_Hang.Controllers
                 return RedirectToAction("CheckOut_Success", "ShoppingCart");
             }
             catch
-            {
+            {  
                 return Content("Đặt hàng không thành công. Xin hãy kiểm tra lại thông tin mua hàng...Xin chân thành cảm ơn!");
             }
         }

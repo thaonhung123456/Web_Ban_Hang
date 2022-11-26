@@ -41,22 +41,37 @@ namespace Web_Ban_Hang.Models
         //Tính thành tiền cho mỗi dòng sản phẩm trong giỏ hàng
         public decimal Total_money()
         {
+
             var total = items.Sum(s => s._quantity * s._product.Price);
             return (decimal)total;
         }
 
         //cập nhật lại số lượng sản phẩm ở mỗi dòng sản phẩm khi khách hàng muốn đặt mua thêm
+        //public void Update_quantity(int id, int _new_quan)
+        //{
+        //    var item = items.Find(s => s._product.ProductID == id);
+        //    if (item != null)
+        //    {
+        //        if (items.Find(s => s._product.Quantity > _new_quan) != null)
+        //        item._quantity = _new_quan;
+        //        else item._quantity = 1;
+        //    }
+        //    //item._quantity = _new_quan;
+        //}
         public void Update_quantity(int id, int _new_quan)
         {
             var item = items.Find(s => s._product.ProductID == id);
             if (item != null)
             {
-                //if (items.Find(s => s._product.Quantity > _new_quan) != null)
-                item._quantity = _new_quan;
-                //else item._quantity = 1;
+                if (items.Find(s => s._product.Quantity > _new_quan) != null || _new_quan < 0)
+                {
+
+                    item._quantity = 1;
+                }
+                else item._quantity = _new_quan;
             }
-            //item._quantity = _new_quan;
         }
+
 
         //Xóa sản phẩm trong giỏi hàng
         public void Remove_CartItem(int id)

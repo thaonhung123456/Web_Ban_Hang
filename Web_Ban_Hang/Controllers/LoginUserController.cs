@@ -42,8 +42,9 @@ namespace Web_Ban_Hang.Controllers
         {
             if (ModelState.IsValid)
             {
-                var check_ID = db.AdminUsers.Where(s => s.ID == _user.ID && s.ID == _user.ID).FirstOrDefault();
-                if (check_ID == null)
+                var check_ID = db.AdminUsers.Where(s => s.ID == _user.ID).FirstOrDefault();
+                var check_NameUser = db.AdminUsers.Where(s => s.NameUser == _user.NameUser).FirstOrDefault();
+                if (check_NameUser == null)
                 {
                     db.Configuration.ValidateOnSaveEnabled = false;
                     db.AdminUsers.Add(_user);
@@ -52,6 +53,7 @@ namespace Web_Ban_Hang.Controllers
                 }
                 else
                 {
+                    ViewBag.ErrorRegister = "Tên đã tồn tại";
                     ViewBag.ErrorRegister = "ID đã tồn tại";
                     return View();
                 }
